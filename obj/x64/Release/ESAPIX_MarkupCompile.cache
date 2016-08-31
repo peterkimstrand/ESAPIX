@@ -4,7 +4,7 @@
 library
 C#
 .cs
-F:\ESAPIX\obj\x64\Release\
+D:\Git\ESAPIX\obj\x64\Release\
 ESAPIX
 none
 false
@@ -13,7 +13,7 @@ TRACE
 3-1744511215
 
 281745484620
-75-860594356
+75-254180157
 AppKit\Overlay\SelectPatient.xaml;AppKit\Splash\SplashScreen.xaml;Styles\UAB_Styles.xaml;
 
 False
