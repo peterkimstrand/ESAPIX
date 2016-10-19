@@ -19,6 +19,7 @@ namespace ESAPIX.AppKit
         private PlanSetup _planSetup;
         private BrachyPlanSetup _brachyPlanSetup;
         private ExternalPlanSetup _exPlanSetup;
+        private IonPlanSetup _ionPlanSetup;
 
         public StandAloneContext(Application app, IVMSThread thread)
         {
@@ -118,6 +119,15 @@ namespace ESAPIX.AppKit
             return _brachyPlanSetup != null;
         }
 
+        public bool SetIonPlanSetup(IonPlanSetup ex)
+        {
+            _planSetup = ex;
+            _ionPlanSetup = ex;
+            //Notify
+            OnIonPlanSetupChanged(ex);
+            OnPlanSetupChanged(ex);
+            return _ionPlanSetup != null;
+        }
         public void ClosePatient()
         {
             Thread.Invoke(() =>
@@ -163,6 +173,10 @@ namespace ESAPIX.AppKit
 
         public IEnumerable<ExternalPlanSetup> ExternalPlansInScope { get { return _course?.ExternalPlanSetups; } }
 
+        public IonPlanSetup IonPlanSetup { get { return _ionPlanSetup; } }
+
+        public IEnumerable<IonPlanSetup> IonPlansInScope { get { return _course?.IonPlanSetups; } }
+
         #region CONTEXT CHANGED EVENTS
         public delegate void PatientChangedHandler(Patient newPatient);
         public event PatientChangedHandler PatientChanged;
@@ -179,6 +193,10 @@ namespace ESAPIX.AppKit
         public delegate void BrachyPlanSetupChangedHandler(BrachyPlanSetup ps);
         public event PlanSetupChangedHandler BrachyPlanSetupChanged;
         public void OnBrachyPlanSetupChanged(BrachyPlanSetup ps) => BrachyPlanSetupChanged?.Invoke(ps);
+
+        public delegate void IonPlanSetupChangedHandler(IonPlanSetup ps);
+        public event PlanSetupChangedHandler IonPlanSetupChanged;
+        public void OnIonPlanSetupChanged(IonPlanSetup ps) => IonPlanSetupChanged?.Invoke(ps);
 
         public delegate void CourseChangedHandler(Course c);
         public event CourseChangedHandler CourseChanged;

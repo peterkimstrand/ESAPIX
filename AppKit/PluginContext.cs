@@ -33,6 +33,10 @@ namespace ESAPIX.AppKit
 
         public IEnumerable<ExternalPlanSetup> ExternalPlansInScope { get { return _ctx?.ExternalPlansInScope; } }
 
+        public IonPlanSetup IonPlanSetup { get { return _ctx?.IonPlanSetup; } }
+
+        public IEnumerable<IonPlanSetup> IonPlansInScope { get { return _ctx?.IonPlansInScope; } }
+
         public Image Image { get { return _ctx?.Image; } }
 
         public Patient Patient { get { return _ctx?.Patient; } }

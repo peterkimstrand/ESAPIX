@@ -30,6 +30,10 @@ namespace ESAPIX.Interfaces
 
         IEnumerable<ExternalPlanSetup> ExternalPlansInScope { get; }
 
+        IonPlanSetup IonPlanSetup { get; }
+
+        IEnumerable<IonPlanSetup> IonPlansInScope { get; }
+
         PlanSetup PlanSetup { get; }
 
         IEnumerable<PlanSetup> PlansInScope { get; }
